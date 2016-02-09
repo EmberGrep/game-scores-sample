@@ -13,10 +13,25 @@
 }
 
 .games-list {
-  padding: 0 1rem;
   flex: 1;
 
   overflow-y: scroll;
+}
+
+.games-list__heading {
+  margin: 0;
+}
+
+.games-list__link {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: inherit;
+  text-decoration: none;
+
+  &.active {
+    background: $brand-secondary;
+    color: $brand-black;
+  }
 }
 
 .footer-bar {

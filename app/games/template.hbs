@@ -2,7 +2,7 @@
   <ul class="games-list">
     {{#each model as |game|}}
       <li>
-        <h2>{{game.attributes.name}}</h2>
+        <h2 class="games-list__heading">{{link-to game.attributes.name 'games.scores' game.id class="games-list__link"}}</h2>
       </li>
     {{/each}}
   </ul>
@@ -15,5 +15,5 @@
   {{/footer-bar}}
 </div>
 <div class="detail">
-  <h2>Top Scores for <strong>Donkey Kong Country</strong></h2>
+  {{outlet}}
 </div>
