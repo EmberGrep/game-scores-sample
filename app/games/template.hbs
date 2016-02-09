@@ -1,0 +1,21 @@
+<div class="left-sidebar">
+  <ul class="games-list">
+    {{#each model as |game|}}
+      <li>
+        <h2>{{game.attributes.name}}</h2>
+      </li>
+    {{/each}}
+  </ul>
+  <footer class="footer-bar">
+    <button class="footer-bar__button footer-bar__button--toggle">Add Game</button>
+
+    <form class="footer-form">
+      <label class="footer-form__label">Name</label>
+      <input type="text" class="footer-form__input" placeholder="Name">
+      <button class="footer-bar__button footer-bar__button--save">Save</button>
+    </form>
+  </footer>
+</div>
+<div class="detail">
+  <h2>Top Scores for <strong>Donkey Kong Country</strong></h2>
+</div>
