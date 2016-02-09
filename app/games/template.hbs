@@ -6,15 +6,13 @@
       </li>
     {{/each}}
   </ul>
-  <footer class="footer-bar">
-    <button class="footer-bar__button footer-bar__button--toggle">Add Game</button>
-
-    <form class="footer-form">
+  {{#footer-bar as |toggleExpanded|}}
+    {{#simple-form class="footer-form" onsubmit=(route-action 'saveGame' toggleExpanded) as |newGame|}}
       <label class="footer-form__label">Name</label>
-      <input type="text" class="footer-form__input" placeholder="Name">
+      {{input type="text" class="footer-form__input" placeholder="Name" value=newGame.name}}
       <button class="footer-bar__button footer-bar__button--save">Save</button>
-    </form>
-  </footer>
+    {{/simple-form}}
+  {{/footer-bar}}
 </div>
 <div class="detail">
   <h2>Top Scores for <strong>Donkey Kong Country</strong></h2>
