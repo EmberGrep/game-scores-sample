@@ -1,15 +1,19 @@
 // Color Palette http://www.colourlovers.com/palette/1880600/Outdoor_Invaders
-//
+
 $brand-black: #141213;
+$brand-white: #E4E4E4;
 $brand-primary: #74A17C;
 $brand-secondary: #DA9328;
 $brand-accent: #C72A29;
 $brand-pop: #B03E87;
+$card-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+$card-shadow-up: -1px -1px 3px rgba(0,0,0,0.12), 0 -1px 2px rgba(0,0,0,0.24);
 
 @import "yoga";
 @import "reset";
 @import "base";
 @import "navbar";
+@import "sidebar";
 
 // Uncomment this for working with yoga prototyping
 // http://rtablada.github.io/yoga-sass/#mixin-yoga-prototype

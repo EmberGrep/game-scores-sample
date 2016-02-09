@@ -1,0 +1,91 @@
+.left-sidebar {
+  width: 25vw;
+  min-width: 20rem;
+  max-width: 35rem;
+
+  display: flex;
+  flex-direction: column;
+
+  background: rgba($brand-black, 0.2);
+
+  box-shadow: $card-shadow;
+}
+
+.games-list {
+  padding: 1rem;
+  flex: 1;
+}
+
+.footer-bar {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-bar__button {
+  border: 0;
+  background: $brand-pop;
+  color: white;
+
+  overflow: hidden;
+
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  padding: 0.5rem;
+
+  height: 2.5rem;
+
+  transition: height 400ms, padding 400ms;
+}
+
+.footer-bar--active .footer-bar__button--toggle {
+  height: 0;
+  padding: 0;
+}
+
+.footer-form {
+  height: 0;
+  background: $brand-white;
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: $card-shadow-up;
+  transition: height 400ms, padding 400ms;
+}
+
+.footer-bar--active .footer-form {
+  height: 5.7rem;
+}
+
+.footer-form__label {
+  display: none;
+}
+
+.footer-form__input {
+  background: none;
+  border: none;
+
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  padding: 0 0 0.2rem;
+  border-bottom: 2px solid $brand-secondary;
+  margin: 1rem 1rem 0.8rem;
+
+  outline: none;
+
+  transition: border-bottom-color 400ms;
+
+  &:focus {
+    border-bottom-color: $brand-accent;
+  }
+}
+
+.footer-bar__button--save {
+  background: $brand-secondary;
+  color: $brand-white;
+
+  transition: background 400ms;
+
+  &:focus {
+    background: $brand-accent;
+  }
+}
