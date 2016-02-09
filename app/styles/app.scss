@@ -1,5 +1,10 @@
+$brand-black: #141213;
+$brand-text: #74A17C;
+
 @import "yoga";
 @import "reset";
+@import "base";
+@import "navbar";
 
 // Uncomment this for working with yoga prototyping
 // http://rtablada.github.io/yoga-sass/#mixin-yoga-prototype
