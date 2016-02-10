@@ -5,6 +5,11 @@
   color: lighten($brand-accent, 5%);
 
   box-shadow: $card-shadow;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 }
 
 .top-nav__list {
