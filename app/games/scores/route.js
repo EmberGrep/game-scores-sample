@@ -4,11 +4,11 @@ const {all, hash} = Ember.RSVP;
 
 export default Ember.Route.extend({
   model(params) {
-    return fetch(`http://localhost:8000/games/${params.gameId}`)
+    return fetch(`https://game-scores.herokuapp.com/games/${params.gameId}`)
       .then((res) => res.json())
       .then((game) => {
         const scores = game.data.relationships.scores.map((score) => {
-          return fetch(`http://localhost:8000/game-scores/${score.id}`)
+          return fetch(`https://game-scores.herokuapp.com/game-scores/${score.id}`)
             .then((res) => res.json());
         });
 
@@ -20,10 +20,10 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    saveScore(afterSave, game, attributes) {
+    saveScore(afterSave, game, attributes, resetForm) {
       const existingScores = this.get('controller.model.scores');
 
-      fetch('http://localhost:8000/game-scores', {
+      fetch('https://game-scores.herokuapp.com/game-scores', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -45,6 +45,7 @@ export default Ember.Route.extend({
       .then((results) => {
         this.set('controller.model.scores', [...existingScores, results.data]);
         afterSave();
+        resetForm();
       });
     }
   }

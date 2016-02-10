@@ -3,16 +3,16 @@ import fetch from 'ember-network/fetch';
 
 export default Ember.Route.extend({
   model() {
-    return fetch('http://localhost:8000/games')
+    return fetch('https://game-scores.herokuapp.com/games')
       .then((res) => res.json())
       .then((results) => results.data);
   },
 
   actions: {
-    saveGame(afterSave, attributes) {
+    saveGame(afterSave, attributes, resetForm) {
       const existingModel = this.get('controller.model');
 
-      fetch('http://localhost:8000/games', {
+      fetch('https://game-scores.herokuapp.com/games', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -28,6 +28,7 @@ export default Ember.Route.extend({
       .then((results) => {
         this.set('controller.model', [...existingModel, results.data]);
         afterSave();
+        resetForm();
       });
     },
   },
