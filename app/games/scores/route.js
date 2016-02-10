@@ -13,8 +13,38 @@ export default Ember.Route.extend({
 
         return hash({
           game: game.data,
-          scores: all(scores),
+          scores: all(scores).then((scores) => scores.map((score) => score.data)),
         });
       });
   },
+
+  actions: {
+    saveScore(afterSave, game, attributes) {
+      const existingScores = this.get('controller.model.scores');
+
+      fetch('http://localhost:8000/game-scores', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          data: {
+            type: 'game',
+            attributes,
+            relationships: {
+              game: {
+                type: 'games',
+                id: game.id,
+              },
+            },
+          },
+        }),
+      }).then((res) => res.json())
+      .then((results) => {
+        this.set('controller.model.scores', [...existingScores, results.data]);
+        afterSave();
+      });
+    }
+  }
 });

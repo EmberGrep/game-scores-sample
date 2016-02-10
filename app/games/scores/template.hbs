@@ -3,6 +3,11 @@
 
   <ol>
     {{#each model.scores as |score|}}
+      <li>
+        {{log score}}
+        {{score.attributes.username}} -
+        {{score.attributes.score}}
+      </li>
     {{/each}}
   </ol>
 </div>
