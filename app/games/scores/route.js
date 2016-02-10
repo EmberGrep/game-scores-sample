@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import fetch from 'ember-network/fetch';
 const {all, hash} = Ember.RSVP;
 
 export default Ember.Route.extend({
