@@ -1,1 +1,19 @@
-{{outlet}}
+<div class="detail-content">
+  <h2>Top scores from <strong>{{model.game.attributes.name}}</strong></h2>
+
+  <ol>
+    {{#each model.scores as |score|}}
+    {{/each}}
+  </ol>
+</div>
+{{#footer-bar buttonText="Add Score" as |toggleExpanded|}}
+  {{#simple-form class="footer-form footer-form--score" onsubmit=(route-action 'saveScore' toggleExpanded model.game) as |newScore|}}
+    <label class="footer-form__label">Username</label>
+    {{input type="text" class="footer-form__input" placeholder="Username" value=newScore.username}}
+
+    <label class="footer-form__label">Score</label>
+    {{input type="text" class="footer-form__input" placeholder="Score" value=newScore.score}}
+
+    <button class="footer-bar__button footer-bar__button--save">Save</button>
+  {{/simple-form}}
+{{/footer-bar}}

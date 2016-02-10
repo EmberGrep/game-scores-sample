@@ -1,4 +1,16 @@
 .detail {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
   flex: 1;
+}
+
+.detail-content {
   padding: 1rem;
+  flex: 1;
+}
+
+.footer-bar--active .footer-form--score {
+  height: 9.5rem;
 }

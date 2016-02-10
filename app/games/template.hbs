@@ -6,7 +6,7 @@
       </li>
     {{/each}}
   </ul>
-  {{#footer-bar as |toggleExpanded|}}
+  {{#footer-bar buttonText="Add Game" as |toggleExpanded|}}
     {{#simple-form class="footer-form" onsubmit=(route-action 'saveGame' toggleExpanded) as |newGame|}}
       <label class="footer-form__label">Name</label>
       {{input type="text" class="footer-form__input" placeholder="Name" value=newGame.name}}
